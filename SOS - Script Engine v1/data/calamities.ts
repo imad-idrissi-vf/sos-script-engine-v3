@@ -1245,3 +1245,10 @@ export const calamities: Calamity[] = [
     },
   },
 ]
+calamities.forEach((calamity) => {
+  const { vraag0b, ...rest } = calamity.vragen
+  calamity.vragen = {
+    ...rest,
+    vraag0b,             // wordt hiermee gegarandeerd de laatste key
+  } as typeof calamity["vragen"]
+})
